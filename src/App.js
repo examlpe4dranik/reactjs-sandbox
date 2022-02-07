@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App" style={divStyle}>
-      <h3>Hello world!</h3>
+      <h3 style={{fontSize: '36px', 'color': '#a3b5c2'}}>Hello world!</h3>
         <SameBlock/>
     </div>
   );
