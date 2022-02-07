@@ -4,9 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const bla = () => {return <p>Bla</p>};
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <div><App />{bla()}</div>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
