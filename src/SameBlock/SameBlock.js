@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default () => (
-    <div>Same block</div>
+export default (props) => (
+    <div>{props.number}: {props.message}</div>
 );
