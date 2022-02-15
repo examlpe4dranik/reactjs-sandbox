@@ -1,5 +1,8 @@
 import React from 'react';
 
 export default (props) => (
-    <div>{props.number}: {props.message}</div>
+    <div>
+        <div>{props.number}: {props.message}</div>
+        {props.children}
+    </div>
 );
