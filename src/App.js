@@ -1,22 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
 import SameBlock from './SameBlock/SameBlock.js';
+import {Component} from "react";
 
-function App() {
-  const divStyle = {'text-align': 'center'};
+class App extends Component {
 
-  return (
-    <div className="App" style={divStyle}>
-      <h3>Hello world!</h3>
-        <SameBlock number={1} message={'message1'}>
-          <p style={{color: 'red'}}>has showed child's content</p>
-        </SameBlock>
-        <SameBlock number={2} message={'message2'}>
-          <p style={{color: '#34c4a1'}}>has showed child's content</p>
-        </SameBlock>
-        <SameBlock number={3} message={'message3'}/>
-    </div>
-  );
+  state = {
+    sameBlocks: [
+      {number: 1, name:'First block', message: 'message from first block'},
+      {number: 2, name:'Second block', message: 'message from second block'},
+      {number: 3, name:'Third block', message: 'message from third block'},
+      {number: 4, name:'Fourth block', message: 'message from fourth block'}
+    ],
+      titlePage: "Title this page"
+  };
+
+  render() {
+    const divStyle = {'text-align': 'center'};
+
+    const blocks = this.state.sameBlocks;
+
+    return (
+        <div className="App" style={divStyle}>
+          <h3>{this.state.titlePage}</h3>
+            <SameBlock number={blocks[0].number} name={blocks[0].name} message={blocks[0].message}/>
+            <SameBlock number={blocks[1].number} name={blocks[1].name} message={blocks[1].message}/>
+            <SameBlock number={blocks[2].number} name={blocks[2].name} message={blocks[2].message}/>
+            <SameBlock number={blocks[3].number} name={blocks[3].name} message={blocks[3].message}/>
+        </div>
+    );
+  }
 }
 
 export default App;
