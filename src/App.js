@@ -14,14 +14,17 @@ class App extends Component {
       titlePage: "Title this page"
   };
 
+  changeTitleHandler = () => {
+    this.setState({
+      titlePage: this.state.titlePage+"+"
+    });
+
+  }
+
   render() {
-    const divStyle = {'text-align': 'center'};
+    const divStyle = {textAlign: 'center'};
 
     const blocks = this.state.sameBlocks;
-
-    var changeTitleHandler = () => {
-      console.log("changeTitleHandler");
-    }
 
     return (
         <div className="App" style={divStyle}>
