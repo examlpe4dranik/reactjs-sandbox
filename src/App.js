@@ -14,9 +14,9 @@ class App extends Component {
       titlePage: "Title this page"
   };
 
-  changeTitleHandler = () => {
+  changeTitleHandler = (newtitle) => {
     this.setState({
-      titlePage: this.state.titlePage+"+"
+      titlePage: newtitle
     });
 
   }
@@ -30,12 +30,28 @@ class App extends Component {
         <div className="App" style={divStyle}>
           <h3>{this.state.titlePage}</h3>
 
-          <button onClick={this.changeTitleHandler}>Change title</button>
+          <button onClick={this.changeTitleHandler.bind(this, this.state.titlePage + "+")}>Change title</button>
 
-            <SameBlock number={blocks[0].number} name={blocks[0].name} message={blocks[0].message}/>
-            <SameBlock number={blocks[1].number} name={blocks[1].name} message={blocks[1].message}/>
-            <SameBlock number={blocks[2].number} name={blocks[2].name} message={blocks[2].message}/>
-            <SameBlock number={blocks[3].number} name={blocks[3].name} message={blocks[3].message}/>
+            <SameBlock
+                number={blocks[0].number}
+                name={blocks[0].name}
+                message={blocks[0].message}
+                onChangeTitle={this.changeTitleHandler.bind(this, blocks[0].name)}/>
+            <SameBlock
+                number={blocks[1].number}
+                name={blocks[1].name}
+                message={blocks[1].message}
+                onChangeTitle={() => this.changeTitleHandler(blocks[1].name)}/>
+            <SameBlock
+                number={blocks[2].number}
+                name={blocks[2].name}
+                message={blocks[2].message}
+                onChangeTitle={() => this.changeTitleHandler(blocks[2].name)}/>
+            <SameBlock
+                number={blocks[3].number}
+                name={blocks[3].name}
+                message={blocks[3].message}
+                onChangeTitle={() => this.changeTitleHandler(blocks[3].name)}/>
         </div>
     );
   }
