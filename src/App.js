@@ -11,7 +11,8 @@ class App extends Component {
       {number: 3, name:'Third block', message: 'message from third block'},
       {number: 4, name:'Fourth block', message: 'message from fourth block'}
     ],
-      titlePage: "Title this page"
+    titlePage: "Title this page",
+    showBlocks: false
   };
 
   changeTitleHandler = (newtitle) => {
@@ -20,36 +21,38 @@ class App extends Component {
     });
   }
 
-  handleInput = (event) =>{
+  toggleBlockHandler = () =>{
     this.setState({
-      titlePage: event.target.value
+      showBlocks: !this.state.showBlocks
     })
   }
 
   render() {
     const divStyle = {textAlign: 'center'};
 
+    let viewBlocks = null;
+    if (this.state.showBlocks)
+    {
+      viewBlocks = this.state.sameBlocks.map((block, index)=>
+      {
+        return (
+            <SameBlock
+                key={index}
+                number={block.number}
+                name={block.name}
+                message={block.message}
+                onChangeTitle={this.changeTitleHandler.bind(this, block.name)}
+            />
+        )
+      })
+    }
+
     return (
         <div className="App" style={divStyle}>
           <h3>{this.state.titlePage}</h3>
-
-          <input type="text" onChange={this.handleInput} />
-          <button onClick={this.changeTitleHandler.bind(this, this.state.titlePage + "+")}>Change title</button>
-
-          {
-            this.state.sameBlocks.map((block, index)=>
-            {
-              return (
-                  <SameBlock
-                      key={index}
-                      number={block.number}
-                      name={block.name}
-                      message={block.message}
-                      onChangeTitle={this.changeTitleHandler.bind(this, block.name)}
-                  />
-              )
-            })
-          }
+          <button onClick={this.toggleBlockHandler.bind(this)}>Toggle blocks</button>
+          {viewBlocks}
+          {this.state.showBlocks ? <hr /> : ''}
         </div>
     );
   }
