@@ -29,8 +29,6 @@ class App extends Component {
   render() {
     const divStyle = {textAlign: 'center'};
 
-    const blocks = this.state.sameBlocks;
-
     return (
         <div className="App" style={divStyle}>
           <h3>{this.state.titlePage}</h3>
@@ -38,26 +36,20 @@ class App extends Component {
           <input type="text" onChange={this.handleInput} />
           <button onClick={this.changeTitleHandler.bind(this, this.state.titlePage + "+")}>Change title</button>
 
-            <SameBlock
-                number={blocks[0].number}
-                name={blocks[0].name}
-                message={blocks[0].message}
-                onChangeTitle={this.changeTitleHandler.bind(this, blocks[0].name)}/>
-            <SameBlock
-                number={blocks[1].number}
-                name={blocks[1].name}
-                message={blocks[1].message}
-                onChangeTitle={() => this.changeTitleHandler(blocks[1].name)}/>
-            <SameBlock
-                number={blocks[2].number}
-                name={blocks[2].name}
-                message={blocks[2].message}
-                onChangeTitle={() => this.changeTitleHandler(blocks[2].name)}/>
-            <SameBlock
-                number={blocks[3].number}
-                name={blocks[3].name}
-                message={blocks[3].message}
-                onChangeTitle={() => this.changeTitleHandler(blocks[3].name)}/>
+          {
+            this.state.sameBlocks.map((block, index)=>
+            {
+              return (
+                  <SameBlock
+                      key={index}
+                      number={block.number}
+                      name={block.name}
+                      message={block.message}
+                      onChangeTitle={this.changeTitleHandler.bind(this, block.name)}
+                  />
+              )
+            })
+          }
         </div>
     );
   }
