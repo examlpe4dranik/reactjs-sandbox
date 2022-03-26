@@ -18,7 +18,12 @@ class App extends Component {
     this.setState({
       titlePage: newtitle
     });
+  }
 
+  handleInput = (event) =>{
+    this.setState({
+      titlePage: event.target.value
+    })
   }
 
   render() {
@@ -30,6 +35,7 @@ class App extends Component {
         <div className="App" style={divStyle}>
           <h3>{this.state.titlePage}</h3>
 
+          <input type="text" onChange={this.handleInput} />
           <button onClick={this.changeTitleHandler.bind(this, this.state.titlePage + "+")}>Change title</button>
 
             <SameBlock
