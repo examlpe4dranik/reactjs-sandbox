@@ -62,7 +62,13 @@ class App extends Component {
             <div className="App" style={divStyle}>
                 <h3>{this.state.titlePage}</h3>
                 <button onClick={this.toggleBlockHandler.bind(this)}>Toggle blocks</button>
-                {viewBlocks}
+                <div style={{
+                    width: 400,
+                    margin: 'auto',
+                    paddingTop: '20px'
+                }}>
+                    {viewBlocks}
+                </div>
                 {this.state.showBlocks ? <hr/> : ''}
             </div>
         );
