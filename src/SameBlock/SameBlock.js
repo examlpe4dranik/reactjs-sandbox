@@ -1,6 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
-import './SomeBlock.css';
+import './SomeBlock.scss';
 
 const someBlock = (props) => {
     const inputClasses = ['input']

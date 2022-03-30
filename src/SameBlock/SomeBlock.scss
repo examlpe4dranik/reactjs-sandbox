@@ -1,10 +1,14 @@
+$defaultWigthBorder: 1px;
+$green: green;
+$red: red;
+
 .SomeBlock {
     margin-bottom: 10px;
     display: block;
     padding: 10px;
 }
 
-.input {
+input {
 }
 
 .input:active, .input:focus {
@@ -12,14 +16,14 @@
 }
 
 .input.green {
-    border: 1px solid green;
+    border: $defaultWigthBorder solid $green;
 }
 
 input.red {
-    border: 1px solid red;
+    border: $defaultWigthBorder solid $red;
 }
 
 .input.bold{
-    border: 2px solid aquamarine;
+    border: $defaultWigthBorder * 3 solid aquamarine;
     font-weight: bold;
 }
