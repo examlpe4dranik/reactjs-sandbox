@@ -60,6 +60,7 @@ class App extends Component {
 
         return (
             <div className="App" style={divStyle}>
+                <h1>{this.props.title}</h1>
                 <h3>{this.state.titlePage}</h3>
                 <button onClick={this.toggleBlockHandler.bind(this)}>Toggle blocks</button>
                 <div style={{

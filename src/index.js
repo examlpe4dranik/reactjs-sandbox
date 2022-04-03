@@ -8,7 +8,7 @@ const bla = () => {return <p>Bla</p>};
 
 ReactDOM.render(
   <React.StrictMode>
-      <div><App />{bla()}</div>
+      <div><App title={'Title value'} />{bla()}</div>
 
   </React.StrictMode>,
   document.getElementById('root')
