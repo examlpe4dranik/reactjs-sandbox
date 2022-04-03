@@ -4,16 +4,20 @@ import {Component} from "react";
 
 class App extends Component {
 
-    state = {
-        sameBlocks: [
-            {number: 1, name: 'First block', message: 'message from first block'},
-            {number: 2, name: 'Second block', message: 'message from second block'},
-            {number: 3, name: 'Third block', message: 'message from third block'},
-            {number: 4, name: 'Fourth block', message: 'message from fourth block'}
-        ],
-        titlePage: "Title this page",
-        showBlocks: false
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            sameBlocks: [
+                {number: 1, name: 'First block', message: 'message from first block'},
+                {number: 2, name: 'Second block', message: 'message from second block'},
+                {number: 3, name: 'Third block', message: 'message from third block'},
+                {number: 4, name: 'Fourth block', message: 'message from fourth block'}
+            ],
+            titlePage: "Title this page",
+            showBlocks: false
+        };
+    }
 
     toggleBlockHandler = () => {
         this.setState({
