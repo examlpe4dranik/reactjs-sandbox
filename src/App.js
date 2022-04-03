@@ -5,6 +5,8 @@ import {Component} from "react";
 class App extends Component {
 
     constructor(props) {
+        console.log('constructor');
+
         super(props);
 
         this.state = {
@@ -17,6 +19,14 @@ class App extends Component {
             titlePage: "Title this page",
             showBlocks: false
         };
+    }
+
+    componentWillMount() {
+        console.log('componentWillMount');
+    }
+
+    componentDidMount() {
+        console.log('componentDidMount');
     }
 
     toggleBlockHandler = () => {
@@ -42,6 +52,8 @@ class App extends Component {
     }
 
     render() {
+        console.log('render');
+
         const divStyle = {textAlign: 'center'};
 
         let viewBlocks = null;
